@@ -77,6 +77,9 @@
         <input type="hidden" name="_subject" value="New Long-Distance Quote - Landing Page">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
+        <!-- Important: Redirect to Thank You Page after submission -->
+        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+
         <div class="hf-grid">
           <div class="hf"><label>First Name</label><input type="text" name="First Name" placeholder="John" required></div>
           <div class="hf"><label>Last Name</label><input type="text" name="Last Name" placeholder="Smith" required></div>
@@ -85,7 +88,12 @@
           <div class="hf"><label>Moving From (City, State)</label><input type="text" name="Moving From" placeholder="Miami, FL" required></div>
           <div class="hf"><label>Moving To (City, State)</label><input type="text" name="Moving To" placeholder="Atlanta, GA" required></div>
           <div class="hf"><label>Home Size</label>
-            <select name="Service Type"><option>Studio / 1 Bedroom</option><option>2 Bedrooms</option><option>3+ Bedrooms</option><option>Office / Commercial</option></select>
+            <select name="Service Type">
+              <option>Studio / 1 Bedroom</option>
+              <option>2 Bedrooms</option>
+              <option>3+ Bedrooms</option>
+              <option>Office / Commercial</option>
+            </select>
           </div>
           <div class="hf"><label>Preferred Move Date</label><input type="date" name="Preferred Move Date" required></div>
           <div class="hf hf-full"><label>Anything Else?</label><textarea rows="2" name="Message" placeholder="Vehicle transport, storage needs, fragile items..."></textarea></div>
@@ -128,16 +136,35 @@
 
 <script>
 document.getElementById('lp-form').addEventListener('submit',function(e){
-  var fn=document.querySelector('[name="First Name"]').value,ln=document.querySelector('[name="Last Name"]').value,ph=document.querySelector('[name="Phone"]').value,mf=document.querySelector('[name="Moving From"]').value,mt=document.querySelector('[name="Moving To"]').value,st=document.querySelector('[name="Service Type"]').value,md=document.querySelector('[name="Preferred Move Date"]').value;
+  var fn=document.querySelector('[name="First Name"]').value,
+      ln=document.querySelector('[name="Last Name"]').value,
+      ph=document.querySelector('[name="Phone"]').value,
+      mf=document.querySelector('[name="Moving From"]').value,
+      mt=document.querySelector('[name="Moving To"]').value,
+      st=document.querySelector('[name="Service Type"]').value,
+      md=document.querySelector('[name="Preferred Move Date"]').value;
+  
   var body='Long-Distance Lead - Landing Page\nName: '+fn+' '+ln+'\nPhone: '+ph+'\nFrom: '+mf+'\nTo: '+mt+'\nSize: '+st+'\nDate: '+md;
-  fetch('https://api.twilio.com/2010-04-01/Accounts/AC78436ae6cf20cc56d6e4be742b68dc44/Messages.json',{method:'POST',headers:{'Authorization':'Basic '+btoa('AC78436ae6cf20cc56d6e4be742b68dc44:241a80c06fd8f2ff976d67fa5d2aa8e0'),'Content-Type':'application/x-www-form-urlencoded'},body:'To=%2B15619510128&From=%2B15619449448&Body='+encodeURIComponent(body)});
+  
+  fetch('https://api.twilio.com/2010-04-01/Accounts/AC78436ae6cf20cc56d6e4be742b68dc44/Messages.json',{
+    method:'POST',
+    headers:{
+      'Authorization':'Basic '+btoa('AC78436ae6cf20cc56d6e4be742b68dc44:241a80c06fd8f2ff976d67fa5d2aa8e0'),
+      'Content-Type':'application/x-www-form-urlencoded'
+    },
+    body:'To=%2B15619510128&From=%2B15619449448&Body='+encodeURIComponent(body)
+  });
 });
 </script>
 
 <footer class="foot">
   <div class="foot-b">Movers <span>Escargot</span></div>
   <p>Florida-based movers covering the entire Southeast and beyond.</p>
-  <div class="foot-l"><a href="tel:5619510128">📞 (561) 951-0128</a><a href="mailto:rybchinskiy@yahoo.com">✉️ Email</a><a href="https://wa.me/15619510128">💬 WhatsApp</a></div>
+  <div class="foot-l">
+    <a href="tel:5619510128">📞 (561) 951-0128</a>
+    <a href="mailto:rybchinskiy@yahoo.com">✉️ Email</a>
+    <a href="https://wa.me/15619510128">💬 WhatsApp</a>
+  </div>
   <p style="margin-top:1.5rem;font-size:.8rem;opacity:.7">© 2026 Movers Escargot. All rights reserved.</p>
 </footer>
 
