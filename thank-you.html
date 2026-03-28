@@ -1,44 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You | Movers Escargot</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Nunito',sans-serif;color:#333;background:#fde8c8;display:flex;align-items:center;justify-content:center;min-height:100vh}
-.thank-container{max-width:700px;margin:0 auto;padding:2rem;text-align:center;background:#fff;border-radius:30px;box-shadow:0 15px 50px rgba(0,0,0,.15)}
-.thank-emoji{font-size:6rem;margin-bottom:1rem}
-h1{font-family:'Fredoka One',cursive;font-size:clamp(2.2rem,6vw,3.5rem);color:#1a1f3a;line-height:1.1;margin-bottom:1rem}
-h1 span{color:#f07c1e}
-p{font-size:1.2rem;line-height:1.6;color:#444;font-weight:600;max-width:520px;margin:0 auto 2rem}
-.btn{background:#5bc4f5;color:#1a1f3a;padding:1rem 2.5rem;border-radius:50px;font-weight:800;font-size:1.15rem;display:inline-block;text-decoration:none;transition:all .3s}
-.btn:hover{background:#f07c1e;color:#fff;transform:translateY(-3px)}
-.back-home{margin-top:2rem;font-size:1rem;color:#666}
-.back-home a{color:#5bc4f5;font-weight:700;text-decoration:underline}
-.foot{text-align:center;margin-top:3rem;font-size:.9rem;opacity:.8}
-@media(max-width:768px){.thank-container{padding:1.5rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Movers Escargot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(to right, #ffffff 50%, #fde8c8 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        .thank-container {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            background: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        .left-side {
+            flex: 1;
+            padding: 4rem 3rem;
+            min-width: 320px;
+        }
+        .right-side {
+            flex: 1;
+            background: #fde8c8;
+            padding: 4rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 320px;
+        }
+        .confetti { font-size: 5.5rem; margin-bottom: 1.5rem; }
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.2rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        h1 span {
+            color: #f07c1e;
+        }
+        .message {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 2.5rem;
+        }
+        .call-btn {
+            background: #5bc4f5;
+            color: #1a1f3a;
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        .call-btn:hover {
+            background: #f07c1e;
+            color: #fff;
+            transform: translateY(-4px);
+        }
+        .right-content {
+            text-align: center;
+            color: #1a1f3a;
+            font-weight: 700;
+        }
+        .footer-text {
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            body { background: #fde8c8; }
+            .thank-container { flex-direction: column; border-radius: 20px; }
+            .left-side, .right-side { padding: 3rem 2rem; }
+            h1 { font-size: 2.6rem; }
+        }
+    </style>
 </head>
 <body>
 
 <div class="thank-container">
-  <div class="thank-emoji">🎉</div>
-  <h1>Thank You <span>for Choosing Us!</span></h1>
-  <p>Your long-distance moving quote request has been received successfully.</p>
-  <p>Our team will contact you shortly at the phone number or email you provided.</p>
-  
-  <a href="tel:5619510128" class="btn">📞 Call Us Now — (561) 951-0128</a>
-  
-  <div class="back-home">
-    <p>Need to make changes? <a href="https://yourdomain.com">Return to Homepage</a></p>
-  </div>
-</div>
+    <!-- Left Side - Main Content -->
+    <div class="left-side">
+        <div class="confetti">🎉</div>
+        <h1>Thank You <span>for Choosing Us!</span></h1>
+        
+        <p class="message">
+            Your long-distance moving quote request has been received successfully.<br><br>
+            Our team will contact you shortly at the phone number or email you provided.
+        </p>
+        
+        <a href="tel:5619510128" class="call-btn">
+            📞 Call Us Now — (561) 951-0128
+        </a>
+    </div>
 
-<footer class="foot">
-  <p>© 2026 Movers Escargot • Florida Long-Distance Movers</p>
-</footer>
+    <!-- Right Side - Branding -->
+    <div class="right-side">
+        <div class="right-content">
+            <p class="footer-text">
+                © 2026 Movers Escargot<br>
+                Florida Long-Distance Movers
+            </p>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
